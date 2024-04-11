@@ -1,0 +1,6 @@
+directorTest/text.txt regular_file
+directorTest/text1.txt regular_file
+directorTest/text2.txt regular_file
+directorTest/director directory
+directorTest/director/symlink_test symlink
+directorTest/director/symlink.txt regular_file
