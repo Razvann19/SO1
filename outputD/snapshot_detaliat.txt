@@ -1,0 +1,462 @@
+Nume: anaV2
+    Cale completă: ./anaV2
+    Tip fișier: Director
+    Dimensiune: 4096 bytes
+    Are link simbolic: Nu
+    Ultima modificare: Fri Apr 12 13:39:16 2024
+    Permisiuni: rwxrwxr-x
+    Nume: alt.txt
+        Cale completă: ./anaV2/alt.txt
+        Tip fișier: Fisier
+        Dimensiune: 6 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 13:39:18 2024
+        Permisiuni: rw-rw-r--
+    Nume: altceva.txt
+        Cale completă: ./anaV2/altceva.txt
+        Tip fișier: Fisier
+        Dimensiune: 9 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 14:33:44 2024
+        Permisiuni: rw-rw-r--
+Nume: ana
+    Cale completă: ./ana
+    Tip fișier: Director
+    Dimensiune: 4096 bytes
+    Are link simbolic: Nu
+    Ultima modificare: Fri Apr 12 12:23:05 2024
+    Permisiuni: rwxrwxr-x
+    Nume: ceva.txt
+        Cale completă: ./ana/ceva.txt
+        Tip fișier: Fisier
+        Dimensiune: 23 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:23:05 2024
+        Permisiuni: rw-rw-r--
+    Nume: adsa
+        Cale completă: ./ana/adsa
+        Tip fișier: Director
+        Dimensiune: 4096 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:53:30 2024
+        Permisiuni: rwxrwxr-x
+        Nume: symlink.txt
+            Cale completă: ./ana/adsa/symlink.txt
+            Tip fișier: Fisier
+            Dimensiune: 5 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:51:30 2024
+            Permisiuni: rw-rw-r--
+        Nume: symlink.txt~
+            Cale completă: ./ana/adsa/symlink.txt~
+            Tip fișier: Fisier
+            Dimensiune: 10 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:41:23 2024
+            Permisiuni: rw-rw-r--
+        Nume: ceav.txt
+            Cale completă: ./ana/adsa/ceav.txt
+            Tip fișier: Fisier
+            Dimensiune: 1149 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:59:52 2024
+            Permisiuni: rw-rw-r--
+        Nume: link.txt
+            Cale completă: ./ana/adsa/link.txt
+            Tip fișier: Fisier
+            Dimensiune: 11 bytes
+            Are link simbolic: Da
+            Ultima modificare: Fri Apr 12 12:53:30 2024
+            Permisiuni: rwxrwxrwx
+Nume: .vscode
+    Cale completă: ./.vscode
+    Tip fișier: Director
+    Dimensiune: 4096 bytes
+    Are link simbolic: Nu
+    Ultima modificare: Fri Apr 12 12:23:05 2024
+    Permisiuni: rwxrwxr-x
+    Nume: tasks.json
+        Cale completă: ./.vscode/tasks.json
+        Tip fișier: Fisier
+        Dimensiune: 713 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:23:05 2024
+        Permisiuni: rw-rw-r--
+Nume: .git
+    Cale completă: ./.git
+    Tip fișier: Director
+    Dimensiune: 4096 bytes
+    Are link simbolic: Nu
+    Ultima modificare: Fri Apr 12 12:23:30 2024
+    Permisiuni: rwxrwxr-x
+    Nume: description
+        Cale completă: ./.git/description
+        Tip fișier: Fisier
+        Dimensiune: 73 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:18:04 2024
+        Permisiuni: rw-rw-r--
+    Nume: config
+        Cale completă: ./.git/config
+        Tip fișier: Fisier
+        Dimensiune: 315 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:22:58 2024
+        Permisiuni: rw-rw-r--
+    Nume: logs
+        Cale completă: ./.git/logs
+        Tip fișier: Director
+        Dimensiune: 4096 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:18:05 2024
+        Permisiuni: rwxrwxr-x
+        Nume: refs
+            Cale completă: ./.git/logs/refs
+            Tip fișier: Director
+            Dimensiune: 4096 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:05 2024
+            Permisiuni: rwxrwxr-x
+            Nume: remotes
+                Cale completă: ./.git/logs/refs/remotes
+                Tip fișier: Director
+                Dimensiune: 4096 bytes
+                Are link simbolic: Nu
+                Ultima modificare: Fri Apr 12 12:18:05 2024
+                Permisiuni: rwxrwxr-x
+                Nume: origin
+                    Cale completă: ./.git/logs/refs/remotes/origin
+                    Tip fișier: Director
+                    Dimensiune: 4096 bytes
+                    Are link simbolic: Nu
+                    Ultima modificare: Fri Apr 12 12:18:05 2024
+                    Permisiuni: rwxrwxr-x
+                    Nume: HEAD
+                        Cale completă: ./.git/logs/refs/remotes/origin/HEAD
+                        Tip fișier: Fisier
+                        Dimensiune: 193 bytes
+                        Are link simbolic: Nu
+                        Ultima modificare: Fri Apr 12 12:18:05 2024
+                        Permisiuni: rw-rw-r--
+            Nume: heads
+                Cale completă: ./.git/logs/refs/heads
+                Tip fișier: Director
+                Dimensiune: 4096 bytes
+                Are link simbolic: Nu
+                Ultima modificare: Fri Apr 12 12:23:30 2024
+                Permisiuni: rwxrwxr-x
+                Nume: main
+                    Cale completă: ./.git/logs/refs/heads/main
+                    Tip fișier: Fisier
+                    Dimensiune: 193 bytes
+                    Are link simbolic: Nu
+                    Ultima modificare: Fri Apr 12 12:18:05 2024
+                    Permisiuni: rw-rw-r--
+                Nume: sap7
+                    Cale completă: ./.git/logs/refs/heads/sap7
+                    Tip fișier: Fisier
+                    Dimensiune: 177 bytes
+                    Are link simbolic: Nu
+                    Ultima modificare: Fri Apr 12 12:22:58 2024
+                    Permisiuni: rw-rw-r--
+                Nume: proiect
+                    Cale completă: ./.git/logs/refs/heads/proiect
+                    Tip fișier: Fisier
+                    Dimensiune: 211 bytes
+                    Are link simbolic: Nu
+                    Ultima modificare: Fri Apr 12 12:23:30 2024
+                    Permisiuni: rw-rw-r--
+        Nume: HEAD
+            Cale completă: ./.git/logs/HEAD
+            Tip fișier: Fisier
+            Dimensiune: 733 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:23:30 2024
+            Permisiuni: rw-rw-r--
+    Nume: refs
+        Cale completă: ./.git/refs
+        Tip fișier: Director
+        Dimensiune: 4096 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:18:05 2024
+        Permisiuni: rwxrwxr-x
+        Nume: remotes
+            Cale completă: ./.git/refs/remotes
+            Tip fișier: Director
+            Dimensiune: 4096 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:05 2024
+            Permisiuni: rwxrwxr-x
+            Nume: origin
+                Cale completă: ./.git/refs/remotes/origin
+                Tip fișier: Director
+                Dimensiune: 4096 bytes
+                Are link simbolic: Nu
+                Ultima modificare: Fri Apr 12 12:18:05 2024
+                Permisiuni: rwxrwxr-x
+                Nume: HEAD
+                    Cale completă: ./.git/refs/remotes/origin/HEAD
+                    Tip fișier: Fisier
+                    Dimensiune: 30 bytes
+                    Are link simbolic: Nu
+                    Ultima modificare: Fri Apr 12 12:18:05 2024
+                    Permisiuni: rw-rw-r--
+        Nume: heads
+            Cale completă: ./.git/refs/heads
+            Tip fișier: Director
+            Dimensiune: 4096 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:23:30 2024
+            Permisiuni: rwxrwxr-x
+            Nume: main
+                Cale completă: ./.git/refs/heads/main
+                Tip fișier: Fisier
+                Dimensiune: 41 bytes
+                Are link simbolic: Nu
+                Ultima modificare: Fri Apr 12 12:18:05 2024
+                Permisiuni: rw-rw-r--
+            Nume: sap7
+                Cale completă: ./.git/refs/heads/sap7
+                Tip fișier: Fisier
+                Dimensiune: 41 bytes
+                Are link simbolic: Nu
+                Ultima modificare: Fri Apr 12 12:22:58 2024
+                Permisiuni: rw-rw-r--
+            Nume: proiect
+                Cale completă: ./.git/refs/heads/proiect
+                Tip fișier: Fisier
+                Dimensiune: 41 bytes
+                Are link simbolic: Nu
+                Ultima modificare: Fri Apr 12 12:23:30 2024
+                Permisiuni: rw-rw-r--
+        Nume: tags
+            Cale completă: ./.git/refs/tags
+            Tip fișier: Director
+            Dimensiune: 4096 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+    Nume: packed-refs
+        Cale completă: ./.git/packed-refs
+        Tip fișier: Fisier
+        Dimensiune: 178 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:18:05 2024
+        Permisiuni: rw-rw-r--
+    Nume: hooks
+        Cale completă: ./.git/hooks
+        Tip fișier: Director
+        Dimensiune: 4096 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:18:04 2024
+        Permisiuni: rwxrwxr-x
+        Nume: post-update.sample
+            Cale completă: ./.git/hooks/post-update.sample
+            Tip fișier: Fisier
+            Dimensiune: 189 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: fsmonitor-watchman.sample
+            Cale completă: ./.git/hooks/fsmonitor-watchman.sample
+            Tip fișier: Fisier
+            Dimensiune: 4726 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: pre-commit.sample
+            Cale completă: ./.git/hooks/pre-commit.sample
+            Tip fișier: Fisier
+            Dimensiune: 1643 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: update.sample
+            Cale completă: ./.git/hooks/update.sample
+            Tip fișier: Fisier
+            Dimensiune: 3650 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: commit-msg.sample
+            Cale completă: ./.git/hooks/commit-msg.sample
+            Tip fișier: Fisier
+            Dimensiune: 896 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: applypatch-msg.sample
+            Cale completă: ./.git/hooks/applypatch-msg.sample
+            Tip fișier: Fisier
+            Dimensiune: 478 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: pre-merge-commit.sample
+            Cale completă: ./.git/hooks/pre-merge-commit.sample
+            Tip fișier: Fisier
+            Dimensiune: 416 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: prepare-commit-msg.sample
+            Cale completă: ./.git/hooks/prepare-commit-msg.sample
+            Tip fișier: Fisier
+            Dimensiune: 1492 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: pre-rebase.sample
+            Cale completă: ./.git/hooks/pre-rebase.sample
+            Tip fișier: Fisier
+            Dimensiune: 4898 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: pre-applypatch.sample
+            Cale completă: ./.git/hooks/pre-applypatch.sample
+            Tip fișier: Fisier
+            Dimensiune: 424 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: pre-receive.sample
+            Cale completă: ./.git/hooks/pre-receive.sample
+            Tip fișier: Fisier
+            Dimensiune: 544 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: push-to-checkout.sample
+            Cale completă: ./.git/hooks/push-to-checkout.sample
+            Tip fișier: Fisier
+            Dimensiune: 2783 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+        Nume: pre-push.sample
+            Cale completă: ./.git/hooks/pre-push.sample
+            Tip fișier: Fisier
+            Dimensiune: 1374 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+    Nume: info
+        Cale completă: ./.git/info
+        Tip fișier: Director
+        Dimensiune: 4096 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:18:04 2024
+        Permisiuni: rwxrwxr-x
+        Nume: exclude
+            Cale completă: ./.git/info/exclude
+            Tip fișier: Fisier
+            Dimensiune: 240 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rw-rw-r--
+    Nume: FETCH_HEAD
+        Cale completă: ./.git/FETCH_HEAD
+        Tip fișier: Fisier
+        Dimensiune: 210 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 14:33:39 2024
+        Permisiuni: rw-rw-r--
+    Nume: index
+        Cale completă: ./.git/index
+        Tip fișier: Fisier
+        Dimensiune: 850 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:23:30 2024
+        Permisiuni: rw-rw-r--
+    Nume: objects
+        Cale completă: ./.git/objects
+        Tip fișier: Director
+        Dimensiune: 4096 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 14:33:39 2024
+        Permisiuni: rwxrwxr-x
+        Nume: pack
+            Cale completă: ./.git/objects/pack
+            Tip fișier: Director
+            Dimensiune: 4096 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:05 2024
+            Permisiuni: rwxrwxr-x
+            Nume: pack-254f911ab6ebe0c654758cc4bdff279e2003bd69.pack
+                Cale completă: ./.git/objects/pack/pack-254f911ab6ebe0c654758cc4bdff279e2003bd69.pack
+                Tip fișier: Fisier
+                Dimensiune: 18427 bytes
+                Are link simbolic: Nu
+                Ultima modificare: Fri Apr 12 12:18:05 2024
+                Permisiuni: r--r--r--
+            Nume: pack-254f911ab6ebe0c654758cc4bdff279e2003bd69.idx
+                Cale completă: ./.git/objects/pack/pack-254f911ab6ebe0c654758cc4bdff279e2003bd69.idx
+                Tip fișier: Fisier
+                Dimensiune: 2108 bytes
+                Are link simbolic: Nu
+                Ultima modificare: Fri Apr 12 12:18:05 2024
+                Permisiuni: r--r--r--
+        Nume: info
+            Cale completă: ./.git/objects/info
+            Tip fișier: Director
+            Dimensiune: 4096 bytes
+            Are link simbolic: Nu
+            Ultima modificare: Fri Apr 12 12:18:04 2024
+            Permisiuni: rwxrwxr-x
+    Nume: HEAD
+        Cale completă: ./.git/HEAD
+        Tip fișier: Fisier
+        Dimensiune: 24 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 12:23:30 2024
+        Permisiuni: rw-rw-r--
+Nume: outputD
+    Cale completă: ./outputD
+    Tip fișier: Director
+    Dimensiune: 4096 bytes
+    Are link simbolic: Nu
+    Ultima modificare: Fri Apr 12 14:33:38 2024
+    Permisiuni: rwxrwxr-x
+    Nume: snapshot_anaV2.txt
+        Cale completă: ./outputD/snapshot_anaV2.txt
+        Tip fișier: Fisier
+        Dimensiune: 64 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 14:33:38 2024
+        Permisiuni: rw-rw-r--
+    Nume: snapshot_ana.txt
+        Cale completă: ./outputD/snapshot_ana.txt
+        Tip fișier: Fisier
+        Dimensiune: 58 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 14:33:38 2024
+        Permisiuni: rw-rw-r--
+    Nume: snapshot_detaliat.txt
+        Cale completă: ./outputD/snapshot_detaliat.txt
+        Tip fișier: Fisier
+        Dimensiune: 16456 bytes
+        Are link simbolic: Nu
+        Ultima modificare: Fri Apr 12 14:33:50 2024
+        Permisiuni: rw-r--r--
+Nume: README.md
+    Cale completă: ./README.md
+    Tip fișier: Fisier
+    Dimensiune: 5 bytes
+    Are link simbolic: Nu
+    Ultima modificare: Fri Apr 12 12:23:05 2024
+    Permisiuni: rw-rw-r--
+Nume: director.c
+    Cale completă: ./director.c
+    Tip fișier: Fisier
+    Dimensiune: 8321 bytes
+    Are link simbolic: Nu
+    Ultima modificare: Fri Apr 12 14:24:35 2024
+    Permisiuni: rw-rw-r--
+Nume: prog
+    Cale completă: ./prog
+    Tip fișier: Fisier
+    Dimensiune: 21176 bytes
+    Are link simbolic: Nu
+    Ultima modificare: Fri Apr 12 14:33:48 2024
+    Permisiuni: rwxrwxr-x

@@ -1,3 +1,0 @@
-ana/ceva.txt,f,23
-ana/adsa,d
-ana/adsa/ceav.txt,f,19
