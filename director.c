@@ -6,6 +6,10 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
+#include <errno.h> 
+#include <sys/errno.h>
+#include <stdbool.h>
+#include <sys/wait.h>
 
 #define MAX_DIR 10
 #define MAX_PATH_LEN 2048
@@ -90,7 +94,6 @@ void scrieMetadate(const char *caleDeBaza, int fd, int adancime) {
     closedir(dir);
 }
 
-
 void creeazaSnapshotDetaliat(const char *numeDirector, const char *numeFisierSnapshotDetaliat) {
     int fdSnapshotDetaliat = open(numeFisierSnapshotDetaliat, O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (fdSnapshotDetaliat == -1) {
@@ -138,6 +141,66 @@ void creeazaSnapshotSimplu(const char *numeDirector, const char *numeFisierSnaps
     fclose(fSnapshotSimplu);
 }
 
+void listaFisiereDirector(char *directorOutput) {
+    DIR *dir;
+    struct dirent *entry;
+
+    dir = opendir(directorOutput);
+    if (dir == NULL) {
+        perror("Nu se poate deschide directorului de output!!");
+        return;
+    }
+
+    printf("E bine -_- Toate detaliile se afla in directorul \"%s\":\n", directorOutput);
+    while ((entry = readdir(dir)) != NULL) {
+        if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
+            printf("%s\n", entry->d_name);
+        }
+    }
+
+    closedir(dir);
+}
+
+bool esteDirectorDuplicat(char *director, char *directoare[], int numarDirectoare) {
+    for (int i = 0; i < numarDirectoare; i++) {
+        if (strcmp(directoare[i], director) == 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void proceseazaDirector(char *numeDirector, char *directorOutput, int fdProcese) {
+    pid_t pid = fork();
+    if (pid < 0) {
+        perror("Eroare la fork");
+        exit(1);
+    } else if (pid == 0) {
+        char numeFisierSnapshotSimplu[MAX_PATH_LEN];
+        snprintf(numeFisierSnapshotSimplu, MAX_PATH_LEN, "%s/snapshot_%s.txt", directorOutput, numeDirector);
+        creeazaSnapshotSimplu(numeDirector, numeFisierSnapshotSimplu);
+        dprintf(fdProcese, "Captura pentru directorul '%s' creata cu succes!\n", numeDirector);
+        exit(0);
+    }
+}
+
+void asteaptaProceseCopil(int numarDirectoare, int fdProcese) {
+    int status;
+    pid_t pid;
+    int proceseFinalizate = 0;
+    
+    while (proceseFinalizate < numarDirectoare) {
+        pid = wait(&status);
+        if (pid > 0) {
+            char buffer[256];
+            int length = snprintf(buffer, sizeof(buffer),"Procesul copil cu PID %d s-a incheiat cu codul de iesire %d.\n",pid, WEXITSTATUS(status));
+            write(fdProcese, buffer, length);
+            proceseFinalizate++;
+        }
+    }
+}
+
+
 int main(int argc, char *argv[]) {
     if (argc < 3) {
         fprintf(stderr, "Folosim: %s -o <director_output> <director1> [<director2> ... <directorN>]\n", argv[0]);
@@ -157,9 +220,14 @@ int main(int argc, char *argv[]) {
                 fprintf(stderr, "Optiunea '-o' doreste un nume de director.\n");
                 return 1;
             }
-        } else {
+      } else {
             if (numarDirectoare < MAX_DIR) {
-                directoare[numarDirectoare++] = argv[i];
+                if (!esteDirectorDuplicat(argv[i], directoare, numarDirectoare)) {
+                    directoare[numarDirectoare++] = argv[i];
+                } else {
+                    fprintf(stderr, "Directorul '%s' a fost specificat de mai multe ori.\n", argv[i]);
+                    return 1;
+                }
             } else {
                 fprintf(stderr, "Numarul maxim de directoare este %d.\n", MAX_DIR);
                 return 1;
@@ -172,30 +240,49 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    struct stat statbuf;
+    if (stat(directorOutput, &statbuf) != 0) {
+        if (errno == ENOENT) {
+            if (mkdir(directorOutput, 0755) != 0) {
+                perror("Nu se poate crea directorul de output!!");
+                return 1;
+            }
+        } else {
+            perror("Eroare la accesarea directorului de output!!");
+            return 1;
+        }
+    }
+
     char numeFisierSnapshotDetaliat[MAX_PATH_LEN];
     int lungimeDetaliat = snprintf(numeFisierSnapshotDetaliat, MAX_PATH_LEN, "%s/snapshot_detaliat.txt", directorOutput);
     if (lungimeDetaliat >= MAX_PATH_LEN || lungimeDetaliat < 0) {
-        fprintf(stderr, "Eroare la construirea snapshot-ul detaliat.\n");
+        fprintf(stderr, "Nu se poate construi snapshot-ul detaliat.\n");
         return 1;
     }
     creeazaSnapshotDetaliat(".", numeFisierSnapshotDetaliat);
 
-    for (int i = 0; i < numarDirectoare; ++i) {
-        char *numeDirector = strrchr(directoare[i], '/');
-        if (numeDirector != NULL) {
-            numeDirector++;
-        } else {
-            numeDirector = directoare[i];
-        }
 
-        char numeFisierSnapshotSimplu[MAX_PATH_LEN];
-        int lungimeSimplu = snprintf(numeFisierSnapshotSimplu, MAX_PATH_LEN, "%s/snapshot_%s.txt", directorOutput, numeDirector);
-        if (lungimeSimplu >= MAX_PATH_LEN || lungimeSimplu < 0) {
-            fprintf(stderr, "Eroare la construirea snapshot-ul simplu %s.\n", numeDirector);
-            continue;
-        }
-        creeazaSnapshotSimplu(directoare[i], numeFisierSnapshotSimplu);
+    char numeFisierProcese[MAX_PATH_LEN];
+    if (snprintf(numeFisierProcese, MAX_PATH_LEN, "%s/snapshot_procese.txt", directorOutput) >= MAX_PATH_LEN) {
+        fprintf(stderr, "Calea este prea lunga pentru buffer.\n");
+        return 1;
     }
 
+    int fdProcese = open(numeFisierProcese, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    if (fdProcese == -1) {
+        perror("Nu se poate deschide fisierului pentru procese!!");
+        return 1;
+    }
+
+    for (int i = 0; i < numarDirectoare; ++i) {
+        char *numeDirector = strrchr(directoare[i], '/');
+        numeDirector = (numeDirector != NULL) ? numeDirector + 1 : directoare[i];
+        proceseazaDirector(numeDirector, directorOutput, fdProcese);
+    }
+
+    asteaptaProceseCopil(numarDirectoare, fdProcese);
+    close(fdProcese);
+    
+    listaFisiereDirector(directorOutput);
     return 0;
 }

@@ -1,0 +1,4 @@
+Captura pentru directorul 'ana' creata cu succes.
+Captura pentru directorul 'anaV2' creata cu succes.
+Procesul Copil cu PID 13270 s-a incheiat cu codul de iesire 0.
+Procesul Copil cu PID 13271 s-a incheiat cu codul de iesire 0.
