@@ -200,6 +200,107 @@ void asteaptaProceseCopil(int numarDirectoare, int fdProcese) {
     }
 }
 
+void scrieMetadateFormatate(const char *caleDeBaza, FILE *file, int adancime) {
+    DIR *dir = opendir(caleDeBaza);
+    if (!dir) {
+        fprintf(file, "%*sNu se poate deschide directorul %s\n", adancime * 2, "", caleDeBaza);
+        return;
+    }
+
+    struct dirent *entry;
+    char cale[2048];
+    struct stat statbuf;
+
+    while ((entry = readdir(dir)) != NULL) {
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+            continue;
+
+        snprintf(cale, sizeof(cale), "%s/%s", caleDeBaza, entry->d_name);
+        if (stat(cale, &statbuf) == -1) {
+            fprintf(file, "%*sEroare la obtinerea informatiilor pentru %s\n", adancime * 2, "", entry->d_name);
+            continue;
+        }
+
+        if (!S_ISDIR(statbuf.st_mode)) {
+        fprintf(file, "%*s|_ %s (Drepturi: %c%c%c%c%c%c%c%c%c%c)\n",
+        adancime * 2, "", entry->d_name,
+        S_ISDIR(statbuf.st_mode) ? 'd' : '-',
+        (statbuf.st_mode & S_IRUSR) ? 'r' : '-',
+        (statbuf.st_mode & S_IWUSR) ? 'w' : '-',
+        (statbuf.st_mode & S_IXUSR) ? 'x' : '-',
+        (statbuf.st_mode & S_IRGRP) ? 'r' : '-',
+        (statbuf.st_mode & S_IWGRP) ? 'w' : '-',
+        (statbuf.st_mode & S_IXGRP) ? 'x' : '-',
+        (statbuf.st_mode & S_IROTH) ? 'r' : '-',
+        (statbuf.st_mode & S_IWOTH) ? 'w' : '-',
+        (statbuf.st_mode & S_IXOTH) ? 'x' : '-');
+        }
+    }
+    closedir(dir);
+}
+
+void genereazaRaportStructuraDirector(const char *caleDirector, FILE *file) {
+    if (file == NULL) {
+        fprintf(stderr, "Fisierul de raport nu este deschis.\n");
+        return;
+    }
+
+    scrieMetadateFormatate(caleDirector, file, 0);
+}
+
+bool areDrepturiLipsa(const char *caleFisier) {
+    struct stat statbuf;
+    if (stat(caleFisier, &statbuf) != 0) {
+        perror("Eroare la accesarea fisierului!!");
+        return false;
+    }
+    return (statbuf.st_mode & 0777) == 0;
+}
+
+void izoleazaDacaMalitios(const char *caleFisier, const char *caleIzolata) {
+    char command[1024];
+    chmod(caleFisier, S_IRUSR);
+
+    snprintf(command, sizeof(command), "./verify_for_malicious.sh %s", caleFisier);
+    int result = system(command);
+    chmod(caleFisier, 000);
+
+    if (result != 0) {
+        char moveCommand[2048];
+        snprintf(moveCommand, sizeof(moveCommand), "mv %s %s/", caleFisier, caleIzolata);
+        system(moveCommand);
+        printf("Fisierul %s a fost mutat in izolare.\n", caleFisier);
+    }
+}
+
+void proceseazaVirus(const char *caleDirector, const char *caleIzolata) {
+    DIR *dir;
+    struct dirent *entry;
+    char caleCompleta[1024];
+    struct stat statbuf;
+
+    if ((dir = opendir(caleDirector)) == NULL) {
+        perror("Eroare la deschidere director!!");
+        return;
+    }
+
+    while ((entry = readdir(dir)) != NULL) {
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+            continue;
+
+        snprintf(caleCompleta, sizeof(caleCompleta), "%s/%s", caleDirector, entry->d_name);
+        if (stat(caleCompleta, &statbuf) != 0) {
+            perror("Eroare la status!!");
+            continue;
+        }
+
+        if (!S_ISDIR(statbuf.st_mode) && areDrepturiLipsa(caleCompleta)) {
+            izoleazaDacaMalitios(caleCompleta, caleIzolata);
+        }
+    }
+    closedir(dir);
+}
+
 
 int main(int argc, char *argv[]) {
     if (argc < 3) {
@@ -284,5 +385,27 @@ int main(int argc, char *argv[]) {
     close(fdProcese);
     
     listaFisiereDirector(directorOutput);
+
+    char *directorIesire = argv[2];
+    char caleFisierRaport[1024];
+    snprintf(caleFisierRaport, sizeof(caleFisierRaport), "%s/snapshot_permisiuni.txt", directorIesire);
+
+    FILE *file = fopen(caleFisierRaport, "w");
+    if (!file) {
+        perror("Nu s-a putut deschide fișierul pentru scriere");
+        return 1;
+    }
+
+    for (int i = 4; i < argc; i++) {
+        genereazaRaportStructuraDirector(argv[i], file);
+    }
+
+    char *caleIzolata = argv[3];
+
+    for (int i = 4; i < argc; i++) {
+        proceseazaVirus(argv[i], caleIzolata);
+    }    
+
+    fclose(file);
     return 0;
 }

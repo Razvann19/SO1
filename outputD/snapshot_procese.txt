@@ -1,4 +1,6 @@
-Captura pentru directorul 'ana' creata cu succes.
-Captura pentru directorul 'anaV2' creata cu succes.
-Procesul Copil cu PID 13270 s-a incheiat cu codul de iesire 0.
-Procesul Copil cu PID 13271 s-a incheiat cu codul de iesire 0.
+Captura pentru directorul 'ana' creata cu succes!
+Captura pentru directorul 'izolated_space_dir' creata cu succes!
+Procesul copil cu PID 15165 s-a incheiat cu codul de iesire 0.
+Captura pentru directorul 'anaV2' creata cu succes!
+Procesul copil cu PID 15164 s-a incheiat cu codul de iesire 0.
+Procesul copil cu PID 15166 s-a incheiat cu codul de iesire 0.
